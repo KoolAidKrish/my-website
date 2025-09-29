@@ -13,9 +13,18 @@ body {
 .title{
   color: white;
   display: block; 
-  font-family: 'Permanent Marker', cursive;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2em, 8vmin, 7em);
   padding: clamp(0.25em, 1vmin, 1em) clamp(1em, 4vmin, 4em);
+  position: relative;
+  text-decoration: none;
+}
+.subtitle{
+  color: white;
+  display: block; 
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1em, 5vmin, 7em);
+  padding: clamp(0.25em, 1vmin, 0.5em) clamp(1em, 4vmin, 4em);
   position: relative;
   text-decoration: none;
 }
@@ -23,7 +32,7 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   color: white;
   display: block; 
-  font-family: 'Permanent Marker', cursive;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(2em, 8vmin, 7em);
   padding: clamp(0.25em, 1vmin, 1em) clamp(1em, 4vmin, 4em);
   position: relative;
@@ -62,5 +71,29 @@ body {
 .link:nth-child(3){
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
-
+.section {
+  position: relative;
+  max-width: 920px;
+  min-height: 75vh;
+  padding: 40px;
+  margin: auto;
+  background-color: #48c9b0;
+  color: #ffffff;
+}
+.section.bg-static {
+  background-color: #85c1e9;
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/008/888/454/small_2x/horizontal-view-of-asphalt-road-elevated-bridge-route-to-cut-through-the-main-road-background-of-trees-and-green-grass-vector.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.section .bg-move {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: auto;
+  width: 100%;
+  background-image: url("https://www.dropbox.com/s/isdqow2394y3t35/img-blog-background-move-scrolling-boat.png?raw=1");
+  background-size: cover;
+  background-position: center;
+}
 
