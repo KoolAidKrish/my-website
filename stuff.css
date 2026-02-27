@@ -1,99 +1,368 @@
-:root {
-  --red: rgb(199, 12, 102);
-  --light-red: rgb(245, 54, 54);
+:root{ 
+  --ShadowGrey:#252323; 
+  --SlateGrey:#70798C;
+  --Parchment:#F5F1ED;
+  --Bone:#DAD2BC;
+  --KhakiBeige:#A99985;
 }
-body {  
-  background-color: rgb(20, 10, 10);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  margin: 0px;
+html {
+	scroll-behavior: smooth;
 }
-.title{
-  color: white;
-  display: block; 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(2em, 8vmin, 7em);
-  padding: clamp(0.25em, 1vmin, 1em) clamp(1em, 4vmin, 4em);
-  position: relative;
-  text-decoration: none;
+body {
+  background-color: var(--ShadowGrey);
+  color: var(--Parchment);
+	width: 100%;
+	overflow-x: hidden;
+	justify-content: space-between;
 }
-.subtitle{
-  color: white;
-  display: block; 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(1em, 5vmin, 7em);
-  padding: clamp(0.25em, 1vmin, 0.5em) clamp(1em, 4vmin, 4em);
-  position: relative;
-  text-decoration: none;
-}
-.link {
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  color: white;
-  display: block; 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(2em, 8vmin, 7em);
-  padding: clamp(0.25em, 1vmin, 1em) clamp(1em, 4vmin, 4em);
-  position: relative;
-  text-decoration: none;
+body::-webkit-scrollbar {
+	display: none;
 }
 
-.link:hover{
-  color:var(--light-red);
+.spacer {
+	width: 100vw;
+  height: 40px;
+	display: inline-block;
+	background-color: var(--ShadowGrey);
+	top: 0;
+	left: 0;
 }
 
-.link:hover:before {
-  transition: width 900ms ease;
-  width: 100%; 
-}
-
-.link:before {
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--red), 
-    var(--light-red-percent),
-    var(--light-red)
-  );
-  content: "";
-  left: 0px;
-  top: 0px;
-  height: 100%;
-  width: 0%;
-  position: absolute;
-}
-
-.link:hover:after{
-  transition: width 6000ms ease;
-  width: 0%;
-}
-.link:nth-child(3){
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-}
-.section {
-  position: relative;
-  max-width: 920px;
-  min-height: 75vh;
-  padding: 40px;
-  margin: auto;
-  background-color: #48c9b0;
-  color: #ffffff;
-}
-.section.bg-static {
-  background-color: #85c1e9;
-  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/008/888/454/small_2x/horizontal-view-of-asphalt-road-elevated-bridge-route-to-cut-through-the-main-road-background-of-trees-and-green-grass-vector.jpg");
-  background-size: cover;
-  background-position: center;
-}
-.section .bg-move {
-  position: absolute;
+.header {
+  width: 100vw;
+  height: 100px;
+  background-color: var(--Bone);
+  position: fixed;
   top: 0;
-  bottom: 0;
-  right: auto;
-  width: 100%;
-  background-image: url("https://www.dropbox.com/s/isdqow2394y3t35/img-blog-background-move-scrolling-boat.png?raw=1");
-  background-size: cover;
-  background-position: center;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+	transition: transform 0.4s ease-in-out;
+	transform: translateY(0);
+}
+.header--hidden {
+	transform: translateY(-100%);
 }
 
+.nav-icon {
+  height: 24px;
+  width: 24px;
+  fill: var(--Parchment);
+}
+.nav-group {
+  display: flex;
+  gap: 15px;
+}
+.nav-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--Parchment);
+	padding: 10px 30px;
+	width: auto;
+	max-height: 50px;
+	background-color: var(--KhakiBeige);
+	border-radius: 50px;
+	z-index: 1500;
+	transition: transform 0.3s ease, box-shadow 1s ease;
+	margin-right: 20px;
+}
+.nav-btn:hover {
+	transform: scale(1.1);
+	box-shadow: 10px 10px;
+	background-color: #988874;
+}
+.nav-btn:active {
+	transform: scale(0.1);
+	background-color: #877763;
+}
+
+.center {
+  text-align: center;
+}
+h1 {
+  font-size: 10em;
+	transition: text-shadow 1s ease, transform 0.3s ease;
+	max-width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+h1:hover {
+	cursor: default;
+	transform: scale(1.1);
+	text-shadow: 0px 0px 4px #ccc7b1;
+}
+h2 {
+	font-size: 5em;
+}
+p {
+	font-size: 2em;
+}
+
+.start {
+  width: 95vw;
+  height: 500px;
+  display: block;
+  border-radius: 20px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  box-shadow: 0 5px 15px black;
+  background-color: var(--Bone);
+	overflow: hidden;
+}
+
+.movingWhite {
+  display: inline-block;
+  font-size: 4rem;
+  padding-left: 100%;
+  animation: scrollTextLeft 60s linear infinite;
+	color: var(--KhakiBeige);
+	text-shadow: 4px 1px 5px rgba(0,0,0,0.1);
+	word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.movingBlack {
+	display: inline-block;
+  font-size: 3rem;
+  padding-left: 100%;
+  animation: scrollTextRight 30s linear infinite;
+	color: var(--ShadowGrey);
+	text-shadow: 0px 0px 5px #ffffff;
+}
+
+/* =====================
+   ENTRANCE ANIMATIONS
+   ===================== */
+
+@keyframes floatIn {
+	from {
+		opacity: 0;
+		transform: translateY(28px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes bubbleFloatIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px) scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* Elements start invisible; animation fills forward to visible */
+.header {
+	opacity: 0;
+	animation: floatIn 0.7s ease-out 0.1s forwards;
+}
+
+h1 {
+	opacity: 0;
+	animation: floatIn 0.8s ease-out 0.3s forwards;
+}
+
+p.center {
+	opacity: 0;
+	animation: floatIn 0.8s ease-out 0.55s forwards;
+}
+
+.start {
+	opacity: 0;
+	animation: floatIn 0.8s ease-out 0.75s forwards;
+}
+
+#skills-arena {
+	opacity: 0;
+	animation: floatIn 0.8s ease-out 0.9s forwards;
+}
+
+/* Bubble entrance — delay set per-bubble via inline style in JS */
+.bubble--enter {
+	animation: bubbleFloatIn 0.5s ease-out forwards;
+	opacity: 0; /* start hidden until animation runs */
+}
+
+/* =====================
+   SKILLS ARENA
+   ===================== */
+
+#skills-arena {
+	width: 95vw;
+	border-radius: 20px;
+  margin: 20px auto;
+	height: 500px;
+	overflow: hidden;
+	display: block;
+	background-color: var(--SlateGrey);
+	position: relative; /* FIX: anchors absolute bubbles */
+}
+
+/* =====================
+   SKILL BUBBLE — BASE
+   ===================== */
+
+.skill-bubble {
+	position: absolute; /* FIX: needed for left/top to work */
+  width: 80px;
+  height: 80px;
+  background-color: var(--KhakiBeige);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid var(--Bone);
+	/* Animate size, position, shape, and background together */
+	transition:
+		width 0.45s ease-in-out,
+		height 0.45s ease-in-out,
+		top 0.45s ease-in-out,
+		left 0.45s ease-in-out,
+		border-radius 0.45s ease-in-out,
+		background-color 0.3s ease,
+		transform 0.2s ease-out;
+}
+
+/* Icon visible when collapsed */
+.bubble-icon {
+	width: 50%;
+	pointer-events: none;
+	transition: opacity 0.15s ease;
+}
+
+/* Content hidden when collapsed */
+.bubble-content {
+	position: absolute;
+	inset: 0;
+	padding: 36px 32px 32px 32px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.1s ease; /* fast fade-out on close prevents scrollbar flash */
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	gap: 0;
+}
+
+/* Large icon shown inside the expanded card */
+.bubble-content .card-icon {
+	width: 72px;
+	height: 72px;
+	object-fit: contain;
+	margin-bottom: 18px;
+	/* No filter — let the SVG render its own colours naturally */
+}
+
+/* Skill name */
+.bubble-content h2 {
+	font-size: 1.3em;
+	font-weight: 700;
+	margin: 0 0 14px 0;
+	color: var(--ShadowGrey);
+	letter-spacing: 0.03em;
+}
+
+/* Decorative divider */
+.bubble-divider {
+	width: 40px;
+	height: 2px;
+	background-color: var(--KhakiBeige);
+	border: none;
+	border-radius: 2px;
+	margin: 0 0 16px 0;
+}
+
+/* Description text */
+.bubble-content p {
+	font-size: 1em;
+	margin: 0;
+	color: var(--ShadowGrey);
+	line-height: 1.7;
+	font-weight: 400;
+	opacity: 0.75; /* slightly softer than the heading without losing readability */
+}
+
+/* =====================
+   BUBBLE — EXPANDED STATE
+   ===================== */
+
+.bubble--expanded {
+	left: 50% !important;
+	top: 50% !important;
+	transform: translate(-50%, -50%) !important;
+	width: min(400px, 80vw) !important;
+	min-height: 280px !important; /* FIX: fixed elements ignore height:auto */
+	border-radius: 24px !important;
+	background-color: var(--Parchment) !important;
+	border: 1.5px solid var(--Bone) !important;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+	cursor: default;
+	align-items: center;
+}
+
+/* When expanded, hide the small bubble icon */
+.bubble--expanded .bubble-icon {
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* When expanded, show the content */
+.bubble--expanded .bubble-content {
+	opacity: 1;
+	pointer-events: all;
+	transition: opacity 0.2s ease 0.3s; /* delayed fade-in AFTER expansion */
+}
+
+/* Dim background overlay when a bubble is expanded */
+.bubble--expanded::before {
+	content: '';
+	position: fixed;
+	inset: 0;
+	background: rgba(37, 35, 35, 0.6);
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	z-index: -1;
+	pointer-events: none;
+}
+
+/* =====================
+   CLOSE BUTTON
+   ===================== */
+
+.bubble-close {
+	position: absolute;
+	top: 14px;
+	right: 16px;
+	width: 28px;
+	height: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.2rem;
+	line-height: 1;
+	border: 1.5px solid var(--Bone);
+	background: none;
+	border-radius: 50%;
+	cursor: pointer;
+	color: var(--KhakiBeige);
+	padding: 0;
+	transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.bubble-close:hover {
+	background-color: var(--KhakiBeige);
+	color: var(--Parchment);
+	transform: scale(1.1);
+}
